@@ -4,8 +4,16 @@ const assertEqual = function(actual, expected) {
 };
 
 const countLetters = sentence => {
-  sentenceLetters = sentence.replace(/[^a-zA-Z]/g, "");
+  const letterCount = {}
+  sentenceLetters = sentence.replace(/[^a-zA-Z]/g, "").toLowerCase();
   for (letter of sentenceLetters){
-    console.log(letter);
+    if(letter in letterCount){
+      letterCount[letter]++;
+    } else {
+      letterCount[letter] = 1;
+    }
   }
+  return letterCount;
 }
+
+console.log(countLetters('ssssssSSSSSSSSSSsssssssssss'));
