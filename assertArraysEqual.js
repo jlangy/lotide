@@ -12,4 +12,6 @@ const eqArrays = (arr1, arr2) => {
       equalArrays = false;
   });
   return equalArrays;
-}
+};
+
+assertArraysEqual([1,2], [1,2]);
