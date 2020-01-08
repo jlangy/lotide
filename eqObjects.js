@@ -22,9 +22,10 @@ const eqObjects = (obj1, obj2) => {
     const key = keys[i];
     if(!(key in obj2)){
       return false;
-    } if (obj1[key] instanceof Array) {
+    } if (obj1[key] instanceof Array || obj2 instanceof Array) {
       return eqArrays(obj1[key], obj2[key]);
-    } 
+    } if(obj1[key] !== obj2[key])
+      return false;
   };
   return true;
 }
@@ -32,6 +33,7 @@ const eqObjects = (obj1, obj2) => {
 const ab = {a: '1', b: '2'};
 const ba = {b: '2', a: '1'};
 const abc = {a: '1', b: '2', c: '3'};
+const abcfalse = {a: '1', b:'3', c:'3'}
 
 const cd = {c: '1', d:["2", 3]};
 const dc = {d:["2", 3], c: '1'};
@@ -42,4 +44,5 @@ assertEqual(eqObjects(ab,ba), true);
 assertEqual(eqObjects(abc,ba), false);
 
 assertEqual(eqObjects(cd,cd2), false);
+assertEqual(eqObjects(abc,abcfalse), false);
 
