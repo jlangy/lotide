@@ -18,30 +18,39 @@ const eqObjects = (obj1, obj2) => {
   const keys = Object.keys(obj1);
   if (keys.length !== Object.keys(obj2).length)
     return false;
-  for(let i = 0; i < keys.length; i++){
+  for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    if(!(key in obj2)){
+    if (!(key in obj2)) {
       return false;
     } if (obj1[key] instanceof Array || obj2 instanceof Array) {
       return eqArrays(obj1[key], obj2[key]);
-    } if(obj1[key] !== obj2[key])
+    } if (typeof obj1[key] === "object" || typeof obj2[key] === "object") {
+      return eqObjects(obj1[key], obj2[key]);
+    }
+    if (obj1[key] !== obj2[key])
       return false;
-  };
+  }
   return true;
-}
+};
 
-const ab = {a: '1', b: '2'};
-const ba = {b: '2', a: '1'};
+
+//Test Objects
+const ab = {a: '1', b: {a:'2', b:{c: '3'}}};
+const ba = {b: {a:'2', b:{c:'3'}}, a: '1'};
+const bafalse = {b: {a:'2', b:{d:'3'}}, a: '1'};
 const abc = {a: '1', b: '2', c: '3'};
-const abcfalse = {a: '1', b:'3', c:'3'}
+const abcfalse = {a: '1', b:'3', c:'3'};
+
+const deep = {a:{b: {c: {d: {e: 'deep', f: {g: 'deeper'}}}}}};
+const deep2 = {a:{b: {c: {d: {f: {g: 'deeper'}, e: 'deep'}}}}};
 
 const cd = {c: '1', d:["2", 3]};
-const dc = {d:["2", 3], c: '1'};
-
 const cd2 = {c:'1', d: ['2',3,4]};
 
 assertEqual(eqObjects(ab,ba), true);
+assertEqual(eqObjects(ab,bafalse), false);
 assertEqual(eqObjects(abc,ba), false);
+assertEqual(eqObjects(deep, deep2), true);
 
 assertEqual(eqObjects(cd,cd2), false);
 assertEqual(eqObjects(abc,abcfalse), false);
