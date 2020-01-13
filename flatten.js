@@ -16,20 +16,16 @@ const eqArrays = (arr1, arr2) => {
 
 const flatten = arr => {
   let flatArray = [];
-  arr.forEach(el => {
-    flatArray = flatArray.concat(el);
-  });
+  for(let i = 0; i < arr.length; i ++){
+    if(!Array.isArray(arr[i]))
+      flatArray.push(arr[i]);
+    else {
+      flatArray = flatArray.concat(flatten(arr[i]));
+    }
+  };
   return flatArray;
-};
+}
+console.log(flatten([1,[2,3,[[[[[[4]]]],5,6,7,[8,9]]]]]));
 
-console.log(flatten([1,2,[3,4]]));
-
-assertArraysEqual(flatten([1,2,[3,4,5]]), [1,2,3,4,5]);
-assertArraysEqual(flatten([1,[2],[3,4,5]]), [1,2,3,4,5]);
-assertArraysEqual(flatten([1,2,[]]), [1,2]);
-assertArraysEqual(flatten([1,2,[3]]), [1,2,3]);
-assertArraysEqual(flatten([]), []);
-assertArraysEqual(flatten([[]]), []);
-assertArraysEqual(flatten([[1]]), [1]);
 
 module.exports = flatten;
