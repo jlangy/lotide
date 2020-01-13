@@ -1,6 +1,6 @@
 {
   "name": "@jonlanglois/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of helper functions for working with arrays and strings.",
   "main": "assertArraysEqual.js",
   "directories": {
