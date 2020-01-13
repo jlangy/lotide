@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@jonlanglois/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "A set of helper functions for working with arrays and strings.",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/jlangy/lotide.git"
   },
-  "author": "",
+  "author": "Jon Langlois",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jlangy/lotide/issues"
