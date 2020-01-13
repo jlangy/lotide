@@ -26,6 +26,8 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
+* `eqArrays(array, array)`: Takes two arrays as arguments. Returns true if they are equivalent, and false otherwise.
+* `eqObjects(array, array)`: Takes two objects as arguments. Returns true if they are equivalent, and false otherwise.
 * `countLetters(sentence)`: Takes a string as argument. Returns an object showing the number of times each letter in `sentence` occurs in `sentence`.
 * `countOnly(items, itemsToCount)`: Takes two arrays as arguments. Returns an object listing the number of times each element of `itemsToCount` is in `items`.
 * `findKey(Object, callback)`: Takes an object and function as arguments. Returns the first key in `object` for which `callback(value)` will pass for that key's value.
