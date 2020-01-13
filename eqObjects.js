@@ -34,24 +34,3 @@ const eqObjects = (obj1, obj2) => {
 };
 
 
-//Test Objects
-const ab = {a: '1', b: {a:'2', b:{c: '3'}}};
-const ba = {b: {a:'2', b:{c:'3'}}, a: '1'};
-const bafalse = {b: {a:'2', b:{d:'3'}}, a: '1'};
-const abc = {a: '1', b: '2', c: '3'};
-const abcfalse = {a: '1', b:'3', c:'3'};
-
-const deep = {a:{b: {c: {d: {e: 'deep', f: {g: 'deeper'}}}}}};
-const deep2 = {a:{b: {c: {d: {f: {g: 'deeper'}, e: 'deep'}}}}};
-
-const cd = {c: '1', d:["2", 3]};
-const cd2 = {c:'1', d: ['2',3,4]};
-
-assertEqual(eqObjects(ab,ba), true);
-assertEqual(eqObjects(ab,bafalse), false);
-assertEqual(eqObjects(abc,ba), false);
-assertEqual(eqObjects(deep, deep2), true);
-
-assertEqual(eqObjects(cd,cd2), false);
-assertEqual(eqObjects(abc,abcfalse), false);
-
