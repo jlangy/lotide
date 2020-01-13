@@ -29,3 +29,5 @@ const empty = [];
 assertArraysEqual(words.map(word => word.length), [6,7,2,5,3]);
 assertArraysEqual(nums.map(num => num * 2), [2,4,6,8,10]);
 assertArraysEqual(empty.map(word => word.length), []);
+
+module.exports = map;

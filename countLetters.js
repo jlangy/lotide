@@ -17,3 +17,5 @@ const countLetters = sentence => {
 }
 
 console.log(countLetters('ssssssSSSSSSSSSSsssssssssss'));
+
+module.exports = countLetters;

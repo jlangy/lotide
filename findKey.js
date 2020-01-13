@@ -35,3 +35,5 @@ assertEqual(findKey(data1,x => x.stars === 2), 'noma');
 assertEqual(findKey(data2,x => x === 2), 'b');
 assertEqual(findKey(data3,x => 5), undefined);
 assertEqual(findKey(data4,x => x.length > 3), 'c');
+
+module.exports = findKey;

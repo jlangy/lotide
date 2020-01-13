@@ -22,3 +22,5 @@ assertArraysEqual(without(['HELLO', 'WORLD', 'LIGHTHoUSE'], ['LIGHTHOUSE']), ['H
 assertArraysEqual(without([1,2,'1',3,4], [1]), [2, '1', 3,4]);
 assertArraysEqual(without([], [1]), []);
 assertArraysEqual(without([1,2], []), [1,2]);
+
+module.exports = without;
